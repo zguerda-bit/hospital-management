@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #123053;
+  --secondary-color: #EFA323;
+}
+
+
+.primary-color{
+  color: var(--primary-color);
+}
+
+.primary-color-background{
+  background-color: var(--primary-color);
+}
+
+.secondary-color{
+  color: var(--secondary-color) !important;
+}
+
+.secondary-color-background{
+  background-color: var(--secondary-color);
+}
+
+.main-content a{
+  text-decoration: none !important;
+}
+
+.avatar-profile-img{
+  width: 300px; 
+  height:300px; 
+  border-radius: 50%; 
+  border: 3px solid rgb(67, 67, 132);
+}
+
+.user-profile span,
+.user-profile label{
+  color: #4b505e !important;
+}
+
+.edit-draft-btn {
+  color: #fff;
+  background-color:var(--secondary-color);
+  width:150px;
+  position: absolute;
+  right:0;
+  margin-right:19%;
+  bottom:30px;
+}
