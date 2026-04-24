@@ -15,14 +15,14 @@ class PatientDocumentsView(APIView):
     def get(self, request, patient_id):
         user = request.user
 
-        # Doctors can see any patient's documents.
-        # Parents can only see documents belonging to their own children.
-        if hasattr(user, 'role') and user.role.nom_role == 'PARENT':
+        # FIX: role is a CharField, not an object — was user.role.nom_role == 'PARENT'
+        if user.role == 'PARENT':
             docs = Document.objects.filter(
                 patient_id=patient_id,
-                patient__parent__utilisateur=user,  # adjust to your FK path
+                patient__parent=user,
             )
         else:
+            # DOCTOR or ADMIN can see any patient's documents
             docs = Document.objects.filter(patient_id=patient_id)
 
         return Response(DocumentSerializer(docs, many=True).data)
@@ -31,7 +31,7 @@ class PatientDocumentsView(APIView):
 class UploadDocumentView(APIView):
     """POST /api/documents/upload/ — upload a document (doctors and parents only)."""
     permission_classes = [IsAuthenticated, IsDoctor | IsParent]
-    parser_classes     = [MultiPartParser, FormParser]
+    parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request):
         serializer = DocumentSerializer(data=request.data)

@@ -57,7 +57,7 @@ class Doctors(models.Model):
     specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
     photo = models.ImageField(upload_to='doctors/photos/', null=True, blank=True)
-    horaires_travail = models.TextField(blank=True)
+    horaire_travail = models.TextField(blank=True)
     actif = models.BooleanField(default=True)
     ville = models.CharField(max_length=100, blank=True)
     class Meta:
@@ -91,8 +91,10 @@ class Patients(models.Model):
          ('A+','A+'),('A-','A-'),('B+','B+'),('B-','B-'),
          ('AB+','AB+'),('AB-','AB-'),('O+','O+'),('O-','O-'),
     )
-    blood_group = models.CharField(max_length=5, choices=BLOOD_GROUP_CHOICES, blank=True)
-
+    groupe_sanguin= models.CharField(max_length=5, choices=BLOOD_GROUP_CHOICES, blank=True)
+    telephone_parent = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(blank=True)
+    date_creation_dossier = models.DateField(auto_now_add=True, null=True)
     class Meta:
         verbose_name = "Patient"
         verbose_name_plural = "Patients"
