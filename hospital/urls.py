@@ -14,6 +14,7 @@ urlpatterns = [
     path('api/notifications/', include('notifications.urls')),
     path('api/messages/',      include('messaging.urls')),
     path('api/documents/',     include('documents.urls')),
+    path('api/admin/', include('admin_panel.urls')),
 ]
 
 if settings.DEBUG:

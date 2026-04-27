@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'medical_history',  
     'notifications',
     'messaging',
-    'documents',               
+    'documents',
+    'admin_panel',               
 ]
 
 MIDDLEWARE = [
