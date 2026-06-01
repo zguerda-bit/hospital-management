@@ -9,7 +9,7 @@ urlpatterns = [
     path('api/users/',         include('users.urls')),
     path('api/consultations/', include('consultations.urls')),
     path('api/notifications/', include('notifications.urls')),
-    path('api/messages/',      include('messaging.urls')),
+
     path('api/documents/',     include('documents.urls')),
     path('api/medical/',       include('medical_history.urls')),
     path('api/patient/',       include('patients.urls')),

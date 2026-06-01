@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'consultations',
     'medical_history',  
     'notifications',
-    'messaging',
+   
     'documents',
     'admin_panel',
     'corsheaders',             
